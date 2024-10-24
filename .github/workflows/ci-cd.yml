@@ -8,8 +8,6 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    env:
-      MONGO_URI: ${{ secrets.MONGO_URI }}
 
     steps:
       - name: Checkout the repo/code
@@ -23,11 +21,10 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Debug Environment Variables
-        run: echo "MONGO_URI=${{ secrets.MONGO_URI }}"
-
       - name: Deploy to Production
         uses: johnbeynon/render-deploy-action@v0.0.8
         with:
           service-id: ${{ secrets.SERVICE_ID }}
           api-key: ${{ secrets.API_KEY }}
+        env:
+          MONGO_URI: ${{ secrets.MONGO_URI }}

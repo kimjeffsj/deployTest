@@ -15,16 +15,10 @@ app.use(bodyParser.json());
 const PORT = 3000;
 const MONGO_URI = process.env.MONGO_URI;
 
-// app.js 상단에 추가
 console.log("Environment variables:", {
   NODE_ENV: process.env.NODE_ENV,
   MONGO_URI: process.env.MONGO_URI,
 });
-
-// MongoDB 연결 전에 체크
-if (!process.env.MONGO_URI) {
-  throw new Error("MONGO_URI environment variable is not defined");
-}
 
 // CONNECT TO MONGODB
 mongoose
@@ -33,7 +27,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.get("/", (req, res) => {
-  res.send("Welcome to my API2");
+  res.send("Welcome to my API");
 });
 
 // GET ALL BOOKS
