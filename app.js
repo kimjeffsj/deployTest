@@ -15,11 +15,6 @@ app.use(bodyParser.json());
 const PORT = 3000;
 const MONGO_URI = process.env.MONGO_URI;
 
-console.log("Environment variables:", {
-  NODE_ENV: process.env.NODE_ENV,
-  MONGO_URI: process.env.MONGO_URI,
-});
-
 // CONNECT TO MONGODB
 mongoose
   .connect(MONGO_URI)
@@ -27,7 +22,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.get("/", (req, res) => {
-  res.send("Welcome to my API");
+  res.send("Welcome to my API 22 updated");
 });
 
 // GET ALL BOOKS
