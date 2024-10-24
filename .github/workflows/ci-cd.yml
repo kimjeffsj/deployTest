@@ -11,19 +11,19 @@ jobs:
     env:
       MONGO_URI: ${{ secrets.MONGO_URI }}
 
-      steps:
-        - name: Checkout the repo/code
+    steps:
+      - name: Checkout the repo/code
         uses: actions/checkout@v2
 
-        - name: Setup NodeJS
+      - name: Setup NodeJS
         uses: actions/setup-node@v2
         with:
           node-version: "20.x"
 
-        - name: Install Dependencies
+      - name: Install Dependencies
         run: npm install
 
-        - name: Deploy to Production
+      - name: Deploy to Production
         uses: johnbeynon/render-deploy-action@v0.0.8
         with:
           service-id: ${{ secrets.SERVICE_ID }}
