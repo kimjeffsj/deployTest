@@ -21,8 +21,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Set Environment Variables
-        run: echo "MONGO_URI=${{ secrets.MONGO_URI }}" >> $GITHUB_ENV
+      - name: Debug Environment Variables
+        run: echo "MONGO_URI=${{ secrets.MONGO_URI }}"
 
       - name: Deploy to Production
         uses: johnbeynon/render-deploy-action@v0.0.8
